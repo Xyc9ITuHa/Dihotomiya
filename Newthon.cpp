@@ -42,17 +42,20 @@ double Newton::solve(std::function<double(double)> func) {
     double x_next;
 
     for (int i = 0; i < maxIter; i++) {
-        double f_val = func(x);
-        double df_val = derivative(func, x);
+        double fucntionValue = func(x);
+        double derFuncValue = derivative(func, x);
 
         // Check for division by zero
-        if (std::abs(df_val) < eps) {
+        if (std::abs(derFuncValue) < eps) {
             std::cout << "Derivative is too close to zero. Method may not converge." << std::endl;
             return x;
         }
 
         // Newton's formula
-        x_next = x - f_val / df_val;
+        x_next = x - fucntionValue / derFuncValue;
+        //              f(x(n))
+        // x(n+1) = x - --------
+        //              f'(x(n))'
 
         // Check convergence
         if (std::abs(x_next - x) < eps) {

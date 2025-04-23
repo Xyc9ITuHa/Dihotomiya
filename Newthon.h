@@ -2,8 +2,8 @@
 // Created by хус on 23.04.2025.
 //
 
-#ifndef NEWTON_H
-#define NEWTON_H
+#ifndef NEWTHON_H
+#define NEWTHON_H
 
 #include <functional>
 #include <iostream>
@@ -29,4 +29,4 @@ public:
     double derivative(std::function<double(double)> func, double x);
 };
 
-#endif //NEWTON_H
+#endif //NEWTHON_H

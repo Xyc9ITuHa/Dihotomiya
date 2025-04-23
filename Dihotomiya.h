@@ -4,7 +4,7 @@
 
 #ifndef DIHOTOMIYA_H
 #define DIHOTOMIYA_H
-
+#include <functional>
 
 
 class Dihotomiya { // private:
@@ -18,9 +18,12 @@ class Dihotomiya { // private:
     void setVolumes(double a, double b);
     void setTolerance(double eps);
     //Getters
-    double getLeftEndpoint(); //a
-    double getRightEndpoint(); //b
-    double getTolerance(); //eps
+    double getLeftEndpoint() const; //a
+    double getRightEndpoint() const; //b
+    double getTolerance() const; //eps
+
+    double solve (std::function<double(double)> func) ;
+    bool check (std::function<double(double)> func) ;
 };
 
 

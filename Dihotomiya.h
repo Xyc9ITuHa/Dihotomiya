@@ -22,8 +22,8 @@ class Dihotomiya { // private:
     double getRightEndpoint() const; //b
     double getTolerance() const; //eps
 
-    double solve () ;
-    bool check () ;
+    double solve (std::function<double(double)> func) ;
+    bool check (std::function<double(double)> func) ;
 };
 
 

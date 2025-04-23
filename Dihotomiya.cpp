@@ -40,33 +40,35 @@ double Dihotomiya::getTolerance() const {
     return eps;
 }
 
-bool Dihotomiya::check() {
+//so basically we pass a function that is double and returns double
+bool Dihotomiya::check(std::function<double(double)> func) {
     // Check if the function changes sign in the interval [a, b]
-    return a * b < 0;
+    return func(a) * func(b) < 0;
 }
 
-double Dihotomiya::solve() {
+//and then we do all this stuff I'm tired of coding
+double Dihotomiya::solve(std::function<double(double)> func) {
     double left = a;
     double right = b;
 
     // Check if there's a solution in the interval
-    if (!check()) {
+    if (!check(func)) {
         std::cout << "No solution in the given interval!" << std::endl;
         return (left + right) / 2; // Return midpoint as default
     }
 
-    double c;
+    double middle;
 
     // Bisection algorithm
     while ((right - left) > eps) {
-        c = (left + right) / 2;
+        middle = (left + right) / 2;
 
-        if (left * c < 0) {
+        if (func(left) * func(middle) < 0) {
             // Solution is in the left half
-            right = c;
+            right = middle;
         } else {
             // Solution is in the right half
-            left = c;
+            left = middle;
         }
     }
 

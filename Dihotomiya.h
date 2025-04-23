@@ -7,15 +7,20 @@
 
 
 
-class Dihotomiya {
-    double a;
-    double b;
-    double eps;
+class Dihotomiya { // private:
+    double a; // left endpoint
+    double b; // right endpoint
+    double eps; // tolerance
     public:
     Dihotomiya();
-    ~Dihotomiya();
+    ~Dihotomiya(); // destructor
+    //Setters
     void setVolumes(double a, double b);
     void setTolerance(double eps);
+    //Getters
+    double getLeftEndpoint(); //a
+    double getRightEndpoint(); //b
+    double getTolerance(); //eps
 };
 
 

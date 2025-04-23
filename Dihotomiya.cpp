@@ -40,10 +40,36 @@ double Dihotomiya::getTolerance() const {
     return eps;
 }
 
-bool Dihotomiya::check(std::function<double(double)> func) {
-
+bool Dihotomiya::check() {
+    // Check if the function changes sign in the interval [a, b]
+    return a * b < 0;
 }
 
-double Dihotomiya::solve(std::function<double(double)> func) {
+double Dihotomiya::solve() {
+    double left = a;
+    double right = b;
 
+    // Check if there's a solution in the interval
+    if (!check()) {
+        std::cout << "No solution in the given interval!" << std::endl;
+        return (left + right) / 2; // Return midpoint as default
+    }
+
+    double c;
+
+    // Bisection algorithm
+    while ((right - left) > eps) {
+        c = (left + right) / 2;
+
+        if (left * c < 0) {
+            // Solution is in the left half
+            right = c;
+        } else {
+            // Solution is in the right half
+            left = c;
+        }
+    }
+
+    // Return the midpoint of the final interval
+    return (left + right) / 2;
 }

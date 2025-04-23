@@ -11,7 +11,7 @@
 class Newton {
     double initGuess;      // Initial guess gotta figure out how to do that
     double eps;     // Tolerance
-    double h;       // Step for numerical differentiation WADAFAK THAT ALL MEANS I CANT UNDERSTAND
+    double h;       // Step for numerical differentiation  THAT ALL MEANS I CANT UNDERSTAND
     int maxIter;    // Maximum number of iterations
 
 public:

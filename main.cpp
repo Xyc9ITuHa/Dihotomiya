@@ -4,16 +4,18 @@
 #include "Dihotomiya.h"
 #include "Newthon.h"
 
+const double e = 2.71828;
+
 // Example function: f(x) = x^2 - 4
 double testFunction(double x) {
-    return x+pow(x,1/2)+pow(x,1/3) - 2.5;
+    return pow(e, x) - pow(e, -x) - 2;
 }
 // ^^ That's why I have this "std::function<double(double)> func" ^^
 
 int main() {
     // Example for Bisection method
     Dihotomiya* dih = new Dihotomiya();
-    dih->setVolumes(0.4, 1); //I honestly hate how this works in C++
+    dih->setVolumes(0, 1.5); //I honestly hate how this works in C++
     dih->setTolerance(0.0001); // Like why can't I doo smth like dih.setTolerance(0.00001)???
     
     double result_bisection = dih->solve(testFunction); // AND AGAIN I HAVE TO CALL WITH THIS UGLY SYNTAX RHGAGGGHHGHHAAAA ╰（‵□′）╯
@@ -23,8 +25,8 @@ int main() {
     
     // Example for Newton's method
     Newton* newton = new Newton();
-    newton->setInitialGuess(1.0); // Starting point
-    newton->setTolerance(0.0001);
+    newton->setInitialGuess(0); // Starting point
+    newton->setTolerance(0.00001);
     
     double result_newton = newton->solve(testFunction);
     std::cout << "Newton's method result: " << result_newton << std::endl;

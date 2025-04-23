@@ -8,7 +8,7 @@
 Newton::Newton() {
     initGuess = 1.0;     // Default initial guess
     eps = 0.0001;  // Default tolerance
-    h = 0.0001;    // Default step for numerical differentiation
+    h = 0.00001;    // Default step for numerical differentiation
     maxIter = 100; // Default maximum iterations
 }
 
@@ -63,7 +63,7 @@ double Newton::solve(std::function<double(double)> func) {
         }
 
         x = x_next;
-    }
+    } // I hate math
 
     std::cout << "Maximum iterations reached. The method may not have converged." << std::endl;
     return x;

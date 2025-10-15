@@ -2,52 +2,52 @@
 // Created by хус on 23.04.2025.
 //
 
-#include "Dihotomiya.h"
+#include "Dyhotomiya.h"
 
 // Dihotomiya.cpp
-#include "Dihotomiya.h"
-#include <iostream>
 #include <cmath>
+#include <iostream>
+#include "Dyhotomiya.h"
 
-Dihotomiya::Dihotomiya() {
+Dyhotomiya::Dyhotomiya() {
     a = 0.0;
     b = 1.0;
     eps = 0.0001;
 }
 
-Dihotomiya::~Dihotomiya() {
+Dyhotomiya::~Dyhotomiya() {
     // Destructor implementation
 }
 
-void Dihotomiya::setVolumes(double a_val, double b_val) {
+void Dyhotomiya::setVolumes(double a_val, double b_val) {
     this->a = a_val;
     this->b = b_val;
 }
 
-void Dihotomiya::setTolerance(double eps_val) {
+void Dyhotomiya::setTolerance(double eps_val) {
     this->eps = eps_val;
 }
 
-double Dihotomiya::getLeftEndpoint() const {
+double Dyhotomiya::getLeftEndpoint() const {
     return a;
 }
 
-double Dihotomiya::getRightEndpoint() const {
+double Dyhotomiya::getRightEndpoint() const {
     return b;
 }
 
-double Dihotomiya::getTolerance() const {
+double Dyhotomiya::getTolerance() const {
     return eps;
 }
 
 //so basically we pass a function that is double and returns double
-bool Dihotomiya::check(std::function<double(double)> func) {
+bool Dyhotomiya::check(std::function<double(double)> func) {
     // Check if the function changes sign in the interval [a, b]
     return func(a) * func(b) < 0;
 }
 
 //and then we do all this stuff I'm tired of coding
-double Dihotomiya::solve(std::function<double(double)> func) {
+double Dyhotomiya::solve(std::function<double(double)> func) {
     double left = a;
     double right = b;
 

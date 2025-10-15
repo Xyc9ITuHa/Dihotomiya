@@ -7,13 +7,13 @@
 #include <functional>
 
 
-class Dihotomiya { // private:
+class Dyhotomiya { // private:
     double a; // left endpoint
     double b; // right endpoint
     double eps; // tolerance
     public:
-    Dihotomiya();
-    ~Dihotomiya(); // destructor
+    Dyhotomiya();
+    ~Dyhotomiya(); // destructor
     //Setters
     void setVolumes(double a, double b);
     void setTolerance(double eps);
